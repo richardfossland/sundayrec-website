@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #194280;
+  --color-brand-gold: #F0BB47;
+  --color-brand-blue-dark: #0f2a54;
+  --color-brand-blue-light: #2a5aa8;
+  --color-brand-gold-light: #f5cc6f;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+}
