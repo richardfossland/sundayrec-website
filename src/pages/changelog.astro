@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Changelog — SundayRec"
+  description="Release notes and version history for SundayRec"
+>
+  <header class="bg-[#194280] py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <a href="/" class="flex items-center gap-3 mb-8">
+        <img src="/images/sundayrec_primary_gull-paa-blaa.svg" alt="SundayRec" class="w-10 h-10" />
+        <span class="font-bold text-lg text-white">SundayRec</span>
+      </a>
+      <h1 class="text-4xl font-extrabold text-white mb-2">Changelog</h1>
+      <p class="text-blue-300 text-sm">Release notes for every version of SundayRec</p>
+    </div>
+  </header>
+
+  <main class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- v4.6.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.6.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Schedule, setup and usability improvements</h2>
+
+        <div class="space-y-8">
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Schedule page
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Calendar is now shown at the top of the tab so you always see the full week at a glance</li>
+              <li>Advanced options (silence detection, split, reminder, manual max length) are collapsed by default and can be revealed with a single click — the page is much less cluttered for new users</li>
+              <li>Fixed a bug where calendar day cells would jump out of position when resizing the window</li>
+              <li>Removed iCal export (was incomplete and unused)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Setup wizard
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>You can now choose any day of the week for your weekly recording — not only Sunday. Default remains Sunday at 11:00</li>
+              <li>Day picker with all seven days lets you set up a recurring service on Monday, Wednesday, Saturday, or any other day</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Home screen
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Date and time merged into a single "Time" column in the recording history table — less horizontal clutter</li>
+              <li>VU meter scale simplified to "Silent" and "Max" labels instead of technical dB numbers</li>
+              <li>History section renamed from "History" to "Latest recordings"</li>
+              <li>Maintenance actions (delete errors, remove missing files) moved into a ⋯ overflow menu to keep the interface clean</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Settings
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Volume slider now uses a neutral fill color instead of distracting green/yellow/red zones</li>
+              <li>Sample rate descriptions updated to explain real-world use: 44.1 kHz = "Music, CD &amp; podcasts", 48 kHz = "Video, Zoom &amp; broadcast equipment"</li>
+              <li>Audio source tab renamed from "Audio source" to "Audio" — shorter and more direct</li>
+              <li>Enhancements (compressor, limiter) merged into the main Audio card instead of a separate card — fewer clicks to reach everything</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Security &amp; reliability
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Fixed a path traversal vulnerability in the editor's sidecar-file read/write — files outside the audio directory can no longer be accessed</li>
+              <li>Fixed a potential command injection in the ffmpeg audio filter chain (channel numbers are now strictly clamped to integers 0–31)</li>
+              <li>Tightened validation when importing a settings profile — malformed slot times and invalid date formats are rejected</li>
+              <li>Auto-delete now correctly awaits file deletion before updating history, preventing orphaned entries</li>
+            </ul>
+          </section>
+
+        </div>
+      </article>
+
+      <hr class="border-gray-100 mb-16" />
+
+      <!-- v4.5.x and earlier -->
+      <article class="mb-16 opacity-70">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-100 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.5.x</span>
+          <span class="text-gray-400 text-sm">Earlier 2026</span>
+        </div>
+        <p class="text-gray-500 text-sm">
+          Audio engine rebuilt in the main process (ffmpeg subprocess) for crash isolation, multi-channel device support,
+          compressor and limiter, FLAC/AAC/WAV output, EQ, and the waveform editor with trim/fade.
+        </p>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="bg-[#0f2a54] py-8">
+    <div class="max-w-3xl mx-auto px-6 flex flex-wrap gap-6 text-sm text-blue-300">
+      <a href="/" class="hover:text-white transition-colors">← Back to home</a>
+      <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+      <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
+    </div>
+  </footer>
+</Layout>
