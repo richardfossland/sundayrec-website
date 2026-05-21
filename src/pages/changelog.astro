@@ -20,12 +20,67 @@ import Layout from '../layouts/Layout.astro';
   <main class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-6">
 
+      <!-- v4.10.7 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.10.7</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Stability and reliability improvements</h2>
+
+        <div class="space-y-8">
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              macOS stability
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Fixed Gatekeeper error ("Apple could not determine if SundayRec is free of malware") on first install — app is now properly notarized on every release</li>
+              <li>VU meter failure no longer stops an active recording — if the system denies microphone access to the monitoring process, recording continues unaffected</li>
+              <li>Plugging or unplugging an audio device during recording no longer interrupts the capture session</li>
+              <li>Pre-roll buffer now restarts correctly after the Mac wakes from sleep</li>
+              <li>Tray icon left-click opens the window; right-click shows the menu — consistent with standard macOS tray behaviour</li>
+              <li>Crash recovery duration is now estimated from the file's modification time (capped at 6 hours) instead of wall clock, giving accurate lengths after a forced quit</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Audio engine
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>EQ settings (bass, mid, treble) are now actually applied to the recorded audio — they were saved but silently ignored in previous versions</li>
+              <li>Auto-stop now works correctly for manually started recordings</li>
+              <li>Windows: audio device list no longer shows duplicate entries or internal GUID strings</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Reliability
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>If the interface crashes while recording, it reloads automatically without touching the active recording</li>
+              <li>Update check now runs every hour in the background — you'll be notified of new versions without restarting</li>
+              <li>Recording history is updated only after a file is successfully deleted, preventing orphaned entries</li>
+            </ul>
+          </section>
+
+        </div>
+      </article>
+
+      <hr class="border-gray-100 mb-16" />
+
       <!-- v4.6.0 -->
       <article class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.6.0</span>
+          <span class="bg-gray-200 text-gray-700 font-bold text-sm px-3 py-1 rounded-full">v4.6.0</span>
           <span class="text-gray-400 text-sm">May 2026</span>
-          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
         </div>
 
         <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Schedule, setup and usability improvements</h2>
