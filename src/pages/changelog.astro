@@ -20,12 +20,92 @@ import Layout from '../layouts/Layout.astro';
   <main class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-6">
 
+      <!-- v4.12.1 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.12.1</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Camera fix + AV sync</h2>
+
+        <div class="space-y-8">
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+              Bug fixes
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li><strong>Camera spinner never stopped:</strong> ffmpeg could open the camera device without AVFoundation ever delivering frames — the preview stayed on "starting…" forever. Fixed with a 15-second timeout in the main process that kills the stuck ffmpeg and sends a "stopped" signal to the UI, plus a 20-second safety net in the renderer</li>
+              <li><strong>AVFoundation retry missed many errors:</strong> Extended the error classifier with 8 new patterns including error codes −11800 / −11810 / −11823, covering all format- and framerate-mismatch failures across macOS versions and device types</li>
+              <li><strong>AV desync on simultaneous audio + video recording:</strong> Audio and video were captured in separate ffmpeg processes that both reset PTS to zero, causing ~300 ms misalignment. Fixed with <code>-use_wallclock_as_timestamps 1</code> on both processes and <code>-copyts -avoid_negative_ts make_zero</code> during mux — lipsync is now accurate</li>
+            </ul>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- v4.12.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.12.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Stability hardening + video recording</h2>
+
+        <div class="space-y-8">
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Video recording
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Record audio and video simultaneously — supports any USB camera, webcam, or HDMI capture card (Blackmagic ATEM Mini, Elgato Cam Link, Magewell)</li>
+              <li>Live camera preview in the UI while recording is active</li>
+              <li>Automatic resolution scaling (480p, 720p, 1080p) and configurable bitrate</li>
+              <li>Audio and video are muxed into a combined MP4 file after the session ends</li>
+              <li>Warning shown in settings when both video and split recording are enabled simultaneously</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Reliability
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Missed recording detection widened to a 25-minute window (up from 15) to handle late starts more gracefully</li>
+              <li>Truly missed recordings are now detected on the next launch — the expected recording time is persisted to disk and checked against the session history</li>
+              <li>If the renderer crashes while recording is active, the recording overlay is automatically restored when the interface reloads — no data is lost</li>
+              <li>macOS SIGTERM handler: a graceful shutdown (OS update / restart) now stops the active recording cleanly before quitting</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Platform fixes
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Windows: fixed ffmpeg concat path escaping for files containing single quotes — recordings were silently skipped during pre-roll merge</li>
+              <li>Windows: "set wake timer" failure now distinguishes between "access denied" (shows administrator hint) and other errors</li>
+              <li>macOS: camera permission is checked before starting a video session — a clear error is shown if access has been denied in System Settings</li>
+              <li>Video file validity threshold raised to 100 KB — very short or corrupt captures are no longer treated as valid recordings</li>
+            </ul>
+          </section>
+
+        </div>
+      </article>
+
       <!-- v4.11.1 -->
       <article class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.11.1</span>
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.11.1</span>
           <span class="text-gray-400 text-sm">May 2026</span>
-          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
         </div>
 
         <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Responsive layout + settings highlight</h2>
