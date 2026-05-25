@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const lastUpdated = 'May 18, 2026';
+const lastUpdated = 'May 25, 2026';
 ---
 
 <Layout
@@ -21,71 +21,70 @@ const lastUpdated = 'May 18, 2026';
   <main class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-6 prose prose-gray prose-headings:text-[#194280] prose-a:text-[#194280] max-w-none">
 
-      <p>This Privacy Policy explains how Richard Fossland ("we", "us", or "our") collects, uses, and protects information when you use SundayRec software and the sundayrec.com website ("Service").</p>
+      <p>This Privacy Policy explains how SundayRec handles data. The short version: <strong>SundayRec is a desktop app — your recordings and settings live on your own machine, and we don't collect them.</strong> The longer version is below, broken down by exactly what data exists and where it goes.</p>
 
-      <h2>1. Information We Collect</h2>
-
-      <h3>a) Information you provide directly</h3>
+      <h2>1. Data stored on your machine</h2>
+      <p>Everything SundayRec needs lives in your OS app-data directory (e.g. <code>~/Library/Application Support/SundayRec</code> on macOS, <code>%APPDATA%\SundayRec</code> on Windows):</p>
       <ul>
-        <li><strong>Email address:</strong> When you sign up for the Pro waitlist or contact us, we collect your email address.</li>
-        <li><strong>Payment information:</strong> When you purchase a Pro subscription, payment is handled by Paddle. We do not store your credit card details — these are processed and stored securely by Paddle.</li>
+        <li><strong>Recordings</strong> — saved to the folder you choose during setup.</li>
+        <li><strong>Settings</strong> — schedule, audio source, format preferences, language, etc.</li>
+        <li><strong>Recording history &amp; queue</strong> — a local database of which files have been recorded, edited, uploaded or published.</li>
+        <li><strong>Logs</strong> — a rolling local log file for troubleshooting. Never sent anywhere unless you choose to share it.</li>
+      </ul>
+      <p>None of this data is transmitted to SundayRec or to any server we operate.</p>
+
+      <h2>2. OAuth tokens (Google Drive, Dropbox)</h2>
+      <p>If you enable cloud backup, SundayRec stores access &amp; refresh tokens from your Google or Dropbox account. Tokens are encrypted using your operating system's built-in secure storage:</p>
+      <ul>
+        <li><strong>macOS:</strong> Keychain (via Electron's <code>safeStorage</code> API)</li>
+        <li><strong>Windows:</strong> DPAPI (per-user encryption)</li>
+      </ul>
+      <p>Tokens are only used by SundayRec on your machine to upload files. They are not sent to any third party.</p>
+
+      <h2>3. Cloud uploads</h2>
+      <p>When you enable Google Drive or Dropbox backup, files are uploaded <strong>directly from your machine to the account you authorized</strong>. SundayRec is not in the middle — we never see the files, never proxy them through our infrastructure, and never have access to your cloud account beyond what the OAuth scope permits (typically: write to a single folder you choose).</p>
+
+      <h2>4. Podcast publishing (RSS feeds &amp; cloud hosts)</h2>
+      <p>If you publish episodes as a podcast, SundayRec generates an RSS feed and uploads the audio file to a destination you configure (your Google Drive, your Dropbox, or another web host). Spotify, Apple Podcasts and other directories then fetch your RSS URL. SundayRec does not host the feed or the episodes itself.</p>
+
+      <h2>5. Email alerts (SMTP)</h2>
+      <p>You can optionally configure SundayRec to send email alerts to your own address when a recording fails or other error occurs. To do this, SundayRec needs SMTP server credentials (host, port, username, password). These credentials are encrypted using OS-level secure storage, same as OAuth tokens above. Emails are sent from your SMTP server directly to your inbox — SundayRec does not route email through our servers.</p>
+
+      <h2>6. Webhook URLs</h2>
+      <p>If you configure a Slack, Discord or other webhook for notifications, the URL is stored as plain text in your local settings file (since webhook URLs are themselves the secret). SundayRec posts directly to the URL you supplied. We do not receive or proxy these messages.</p>
+
+      <h2>7. Auto-update checks</h2>
+      <p>SundayRec periodically checks <code>releases.github.com</code> for new versions of the app. This request includes only generic data (your app version and operating system) and is handled by GitHub's standard release infrastructure. No personally identifiable information is sent.</p>
+
+      <h2>8. No analytics, no telemetry</h2>
+      <p>SundayRec does not include any analytics SDK, crash-reporting service, or usage telemetry. We do not know how many times you open the app, which features you use, or whether a recording succeeded — unless you explicitly tell us when contacting support.</p>
+
+      <h2>9. Recording content never leaves your machine (unless you ask)</h2>
+      <p>The audio and video you record stays on your device. The only ways content leaves your machine are:</p>
+      <ul>
+        <li>You enable cloud backup (goes to <em>your</em> cloud account)</li>
+        <li>You enable podcast publishing (goes to <em>your</em> configured host)</li>
+        <li>You manually copy or share the file yourself</li>
       </ul>
 
-      <h3>b) Information collected automatically</h3>
+      <h2>10. The website (sundayrec.com)</h2>
+      <p>The website is a static site hosted on Cloudflare Pages. Standard server logs (IP address, page requested, user agent) may be retained by Cloudflare for a short period for security and abuse-prevention purposes. We do not run analytics scripts.</p>
+      <p>If you submit the email-signup form, your address is processed by <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree</a> and forwarded to us. We only use it to send the release notes you signed up for. Unsubscribe any time by replying to a message.</p>
+
+      <h2>11. Third-party services used by the desktop app</h2>
       <ul>
-        <li><strong>Website analytics:</strong> We may collect basic, anonymised usage data about visits to sundayrec.com (pages visited, browser type, country). No personally identifiable information is stored in analytics.</li>
-        <li><strong>Auto-update checks:</strong> The SundayRec desktop app periodically checks for updates. This involves a network request to our update server that may include your app version and operating system. No personal data is transmitted.</li>
+        <li><strong>GitHub Releases</strong> — hosts the app's installer files and update metadata. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy policy</a>.</li>
+        <li><strong>Google Drive / Dropbox</strong> — only if you enable cloud backup. You authorize them, you control the data they hold.</li>
       </ul>
 
-      <h3>c) Information we do NOT collect</h3>
-      <ul>
-        <li>We do not access, upload, or store your audio recordings.</li>
-        <li>We do not track your recording activity or schedules.</li>
-        <li>All recordings remain on your local device at all times.</li>
-      </ul>
+      <h2>12. Your rights</h2>
+      <p>Because we hold so little data about you, most data-protection rights apply trivially: there's nothing to access, correct, or delete on our side beyond an email address (if you signed up for the mailing list). To remove your email, reply to any list message or contact us at <a href="mailto:hello@sundayrec.com">hello@sundayrec.com</a>.</p>
 
-      <h2>2. How We Use Your Information</h2>
-      <p>We use the information we collect to:</p>
-      <ul>
-        <li>Send you product updates and announcements (only if you signed up for the waitlist)</li>
-        <li>Process payments and manage your subscription</li>
-        <li>Respond to support enquiries</li>
-        <li>Improve the Service</li>
-      </ul>
-      <p>We will never sell your personal data to third parties.</p>
+      <h2>13. Changes to this policy</h2>
+      <p>We may update this policy as the app evolves. Material changes will be reflected in the "Last updated" date above.</p>
 
-      <h2>3. Third-Party Services</h2>
-      <p>We use the following third-party services that may process your data:</p>
-      <ul>
-        <li><strong>Paddle</strong> — payment processing and subscription management. See <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener">Paddle's Privacy Policy</a>.</li>
-        <li><strong>Formspree</strong> — email form submissions from the website. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree's Privacy Policy</a>.</li>
-        <li><strong>GitHub</strong> — hosts the application download files. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Policy</a>.</li>
-      </ul>
-
-      <h2>4. Data Retention</h2>
-      <p>We retain your email address for as long as you remain subscribed to our mailing list. You may unsubscribe at any time via the link in any email we send. Payment records are retained as required by law.</p>
-
-      <h2>5. Your Rights</h2>
-      <p>Depending on your location, you may have the right to:</p>
-      <ul>
-        <li>Access the personal data we hold about you</li>
-        <li>Request correction or deletion of your data</li>
-        <li>Object to or restrict processing of your data</li>
-        <li>Data portability</li>
-      </ul>
-      <p>To exercise any of these rights, contact us at <a href="mailto:hello@sundayrec.com">hello@sundayrec.com</a>.</p>
-
-      <h2>6. Security</h2>
-      <p>We take reasonable technical and organisational measures to protect your information. However, no method of transmission over the internet is 100% secure.</p>
-
-      <h2>7. Children's Privacy</h2>
-      <p>The Service is not directed to children under 13. We do not knowingly collect personal information from children.</p>
-
-      <h2>8. Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
-
-      <h2>9. Contact</h2>
-      <p>Questions or concerns about this policy? Contact us at <a href="mailto:hello@sundayrec.com">hello@sundayrec.com</a>.</p>
+      <h2>14. Contact</h2>
+      <p>Questions, concerns, or curiosity about how SundayRec handles data? Email us at <a href="mailto:hello@sundayrec.com">hello@sundayrec.com</a>. The app is also open about what it does — the source is on <a href="https://github.com/richardfossland/sundayrec" target="_blank" rel="noopener">GitHub</a> if you want to verify any of the above.</p>
 
     </div>
   </main>
