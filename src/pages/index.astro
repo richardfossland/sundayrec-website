@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const VERSION = 'v4.38.0';
 ---
 
 <Layout>
@@ -63,7 +65,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="flex justify-center mb-8">
         <span class="inline-flex items-center gap-2 bg-[#F0BB47]/20 border border-[#F0BB47]/40 text-[#F0BB47] text-sm font-semibold px-4 py-2 rounded-full">
           <span class="w-2 h-2 rounded-full bg-[#F0BB47] animate-pulse"></span>
-          v4.25.3 — Free to download
+          {VERSION} — Free to download
         </span>
       </div>
 
@@ -73,12 +75,12 @@ import Layout from '../layouts/Layout.astro';
           <span class="text-[#F0BB47]">ready to share.</span>
         </h1>
         <p class="text-xl md:text-2xl text-blue-200 max-w-2xl mx-auto mb-10 leading-relaxed">
-          SundayRec automatically records your church service, extracts the sermon, and prepares it for podcast distribution — all without touching a button.
+          SundayRec automatically records your church service, transcribes the sermon to searchable text, and streams it live to YouTube and Facebook — all without touching a button or paying for a subscription.
         </p>
 
         <!-- Email capture -->
         <div id="early-access" class="max-w-md mx-auto">
-          <p class="text-blue-300 text-sm mb-3 font-medium">Be the first to know when Pro launches</p>
+          <p class="text-blue-300 text-sm mb-3 font-medium">Get notified about major SundayRec releases</p>
           <form
             action="https://formspree.io/f/3004580849401199888"
             method="POST"
@@ -103,7 +105,7 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Beta download CTA -->
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <span class="text-blue-300 text-sm">Or try the free beta now:</span>
+          <span class="text-blue-300 text-sm">Free, full-featured, no account needed:</span>
           <div class="flex gap-3">
             <a
               href="https://github.com/richardfossland/sundayrec/releases"
@@ -193,6 +195,8 @@ import Layout from '../layouts/Layout.astro';
           '100% free to record',
           'Mac & Windows',
           '7 interface languages',
+          'AI sermon transcription',
+          'Live RTMP streaming',
           'No account required',
           'Works with any USB mixer',
         ].map(item => (
@@ -263,15 +267,69 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
           <div class="absolute top-4 right-4">
-            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">Pro · Coming soon</span>
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.37+</span>
           </div>
           <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#F0BB47] transition-colors">
             <svg class="w-6 h-6 text-[#F0BB47] group-hover:text-[#194280] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Export &amp; Share</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Export a polished episode with metadata, chapter markers, and intro/outro clips ready to upload to any podcast platform.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">AI Sermon Transcription</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Turn every sermon into searchable text — entirely on your machine. Powered by whisper.cpp, supports 8 languages, exports SRT subtitles for YouTube. Nothing leaves your computer.</p>
+        </div>
+
+        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+          <div class="absolute top-4 right-4">
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.38</span>
+          </div>
+          <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-500 transition-colors">
+            <svg class="w-6 h-6 text-red-500 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Live Streaming</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Stream your service live to YouTube, Facebook, or any RTMP server — multiple destinations from a single ffmpeg process. No subscription, no scene-switcher to learn.</p>
+        </div>
+
+        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">YouTube Upload</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Publish straight to YouTube from the editor. Resumable upload protocol survives network hiccups; uploads stay private by default until you're ready to release.</p>
+        </div>
+
+        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Auto Sermon Detection</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">SundayRec analyses the recording as soon as it's done and finds the sermon block automatically. One click to trim — or fine-tune yourself in the editor.</p>
+        </div>
+
+        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Cloud Backup</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Every recording auto-uploads to your own Google Drive or Dropbox after the service ends. OAuth tokens stay in the system keychain — your files never pass through us.</p>
+        </div>
+
+        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Podcast RSS Feed</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">A valid RSS feed is generated and updated for you. Submit the URL once to Spotify, Apple Podcasts and Pocket Casts — new episodes appear automatically after every service.</p>
         </div>
 
         <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
@@ -332,7 +390,7 @@ import Layout from '../layouts/Layout.astro';
             <span class="text-[#194280] font-extrabold text-2xl">3</span>
           </div>
           <h3 class="text-xl font-bold text-white mb-3">Share your message</h3>
-          <p class="text-blue-200 leading-relaxed">Your recording is ready. Edit, export, and distribute to your podcast — reaching people who couldn't be there in person.</p>
+          <p class="text-blue-200 leading-relaxed">Transcribe the sermon, stream live to YouTube or Facebook, and publish to your podcast feed — all from the same window, reaching people who couldn't be there in person.</p>
         </div>
       </div>
     </div>
@@ -353,10 +411,13 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <!-- Free plan -->
-        <div class="bg-white rounded-3xl border-2 border-gray-100 p-8">
+        <div class="bg-white rounded-3xl border-2 border-[#194280] p-8 relative overflow-hidden">
+          <div class="absolute top-5 right-5">
+            <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Available now</span>
+          </div>
           <div class="mb-6">
             <h3 class="text-xl font-bold text-[#194280] mb-1">Free</h3>
-            <p class="text-gray-400 text-sm">Perfect for getting started</p>
+            <p class="text-gray-400 text-sm">Everything in SundayRec, today</p>
           </div>
           <div class="mb-8">
             <span class="text-5xl font-extrabold text-[#194280]">kr 0</span>
@@ -368,8 +429,13 @@ import Layout from '../layouts/Layout.astro';
               'USB mixer & audio interface support',
               '30+ audio formats (MP3, WAV, FLAC, OGG, WMA and more)',
               'Video recording (USB webcam & capture cards)',
-              'Mac & Windows',
-              '7 interface languages',
+              'AI sermon transcription (100% local, 8 languages)',
+              'Live streaming to YouTube, Facebook & RTMP',
+              'YouTube upload directly from editor',
+              'Auto sermon detection & one-click trim',
+              'Cloud backup (Google Drive & Dropbox)',
+              'Podcast RSS feed for Spotify, Apple, Pocket Casts',
+              'Mac & Windows · 7 interface languages',
               'Auto-updates',
             ].map(item => (
               <li class="flex items-center gap-3">
@@ -384,7 +450,7 @@ import Layout from '../layouts/Layout.astro';
             href="https://github.com/richardfossland/sundayrec/releases"
             target="_blank"
             rel="noopener"
-            class="block w-full text-center bg-[#194280]/10 hover:bg-[#194280]/20 text-[#194280] font-semibold py-3.5 rounded-xl transition-colors"
+            class="block w-full text-center bg-[#194280] hover:bg-[#0f2a54] text-white font-semibold py-3.5 rounded-xl transition-colors"
           >
             Download Free
           </a>
@@ -393,25 +459,27 @@ import Layout from '../layouts/Layout.astro';
         <!-- Pro plan -->
         <div class="bg-[#194280] rounded-3xl border-2 border-[#194280] p-8 relative overflow-hidden">
           <div class="absolute top-5 right-5">
-            <span class="bg-[#F0BB47] text-[#194280] text-xs font-bold px-3 py-1 rounded-full">Coming soon</span>
+            <span class="bg-[#F0BB47] text-[#194280] text-xs font-bold px-3 py-1 rounded-full">Future · 2026</span>
           </div>
           <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#F0BB47]/10 rounded-full blur-2xl"></div>
 
           <div class="mb-6 relative">
             <h3 class="text-xl font-bold text-white mb-1">Pro</h3>
-            <p class="text-blue-200 text-sm">For churches ready to publish</p>
+            <p class="text-blue-200 text-sm">Optional add-ons for larger ministries</p>
           </div>
           <div class="mb-8 relative">
-            <span class="text-5xl font-extrabold text-[#F0BB47]">kr 500</span>
-            <span class="text-blue-300 ml-2">/ year per church</span>
+            <span class="text-5xl font-extrabold text-[#F0BB47]">TBD</span>
+            <span class="text-blue-300 ml-2">/ launches later this year</span>
           </div>
+          <p class="text-blue-100 text-sm leading-relaxed mb-6 relative">
+            Every feature we ship today is free. A Pro plan is being designed for premium add-ons — things like multi-campus support, hosted transcription, and team review workflows — but nothing currently in SundayRec will ever move behind a paywall.
+          </p>
           <ul class="space-y-3 mb-8 text-sm relative">
             {[
-              'Everything in Free',
-              'In-app sermon editor with waveform',
-              'Set in/out points with precision',
-              'Export with intro & outro clips',
-              'Chapter markers & metadata',
+              'Everything in Free, forever',
+              'Multi-campus management (planned)',
+              'Hosted backup & podcast hosting (planned)',
+              'Team review queues with roles (planned)',
               'Priority support',
             ].map(item => (
               <li class="flex items-center gap-3">
@@ -432,7 +500,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <p class="text-center text-gray-400 text-sm mt-8">
-        All prices exclude VAT where applicable. Billing in NOK (kr) or USD.
+        No features currently in SundayRec require payment. If we ever charge, you'll know in advance.
       </p>
     </div>
   </section>
@@ -486,7 +554,7 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="mt-6 text-center">
         <a href="/changelog" class="inline-flex items-center gap-2 text-sm text-[#194280] hover:underline font-medium">
-          <span class="bg-[#F0BB47] text-[#194280] text-xs font-bold px-2 py-0.5 rounded-full">v4.25.3</span>
+          <span class="bg-[#F0BB47] text-[#194280] text-xs font-bold px-2 py-0.5 rounded-full">{VERSION}</span>
           What's new in this release →
         </a>
       </div>
@@ -555,7 +623,7 @@ import Layout from '../layouts/Layout.astro';
         Don't let another sermon<br />go unheard.
       </h2>
       <p class="text-blue-200 text-lg mb-10 max-w-xl mx-auto">
-        Join the waitlist and be the first to know when SundayRec Pro launches with editing and publishing features.
+        Download SundayRec free today — recording, AI transcription, live streaming and podcast publishing are all included. Drop your email to hear about new releases.
       </p>
       <form
         action="https://formspree.io/f/3004580849401199888"

@@ -20,12 +20,271 @@ import Layout from '../layouts/Layout.astro';
   <main class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-6">
 
+      <!-- v4.38.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.38.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Live RTMP streaming to YouTube, Facebook and beyond</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Direkte tab — go live in one click
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>A new "Direkte" tab sits between Schedule and Edit in the sidebar — large red "Start live broadcast" button, live preview, audio meter, and bitrate / FPS / dropped-frames stats while streaming</li>
+              <li>Stream to YouTube, Facebook Live, or any custom RTMP server — all three at the same time from a single ffmpeg process if you want</li>
+              <li>Per-destination connection status (connecting / live / failed) shown in real time so you know exactly what's reaching each platform</li>
+              <li>Resolution presets at 480p, 720p (recommended) and 1080p, with 25 or 30 fps</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Security &amp; honesty
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Stream keys are stored encrypted in the system keychain — never in plain text on disk</li>
+              <li>No subscription, no cloud relay, no scenes or transitions to learn — just point the video and audio at one or more destinations and start</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.37.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.37.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Local AI sermon transcription</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Transcribe sermons to searchable text — 100% on-device
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Built on whisper.cpp (the same technology behind OpenAI Whisper, running locally on your machine) — nothing leaves your computer, ever</li>
+              <li>Choose between four models: Base (fastest), Small, Medium and Large Turbo Q5 (recommended quality/speed balance)</li>
+              <li>Multi-language: Norwegian, English, Swedish, Danish, German, French, Polish and Spanish, plus auto-detect. Optional "translate to English" mode</li>
+              <li>Performance: a 60-minute sermon on Apple Silicon with Large Turbo Q5 takes around 10 minutes to transcribe</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Transcript panel &amp; export
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Clickable segments: click any sentence and the playhead jumps there. The current segment highlights live as the recording plays</li>
+              <li>One-click SRT export — drop it straight onto YouTube for closed captions, or use it for translations and study notes</li>
+              <li>First-run model download is a one-time ~547 MB; after that, transcription works entirely offline</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.36.x -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.36.0–4.36.2</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Sermon-only recordings + reliability fixes</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Sermon-only recording detection
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Some churches only record the sermon, not the whole service. SundayRec now detects this automatically — when ≥80% of the file is speech and &lt;5% music, the entire recording is treated as the sermon (no trim suggested)</li>
+              <li>Trusted-paths handling so recordings from external drives behave the same as those on internal storage</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Bug fixes
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>YouTube uploads now show actionable error messages — e.g. when the YouTube Data API isn't enabled, you get a clear pointer to fix it instead of a cryptic 403</li>
+              <li>Review queue card fully translated — day and month names use proper locale arrays in all 7 languages</li>
+              <li>Waveform no longer disappears when navigating between tabs</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.35.x -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.35.0–4.35.4</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Stability hardening + full 7-language i18n</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              Full localisation finished
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Norwegian, English, Swedish, Danish, German, French and Polish are now complete — 722+ translated strings per language, including every tooltip</li>
+              <li>Switching language at runtime updates the entire UI, including tooltips and dynamic strings</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Reliability &amp; performance
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>ffmpeg watchdogs on every post-processing step — a stuck process is detected and recovered, not silently hung</li>
+              <li>Peak memory for long recordings cut in half: a three-hour service that previously used ~340 MB now peaks at ~170 MB</li>
+              <li>Path-traversal defence on sidecar file writes — only paths inside your project folder are ever touched</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              UI polish
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Sticky-header glitch fixed; ruler duplicates on the timeline removed</li>
+              <li>60+ inline styles moved into proper CSS classes — easier to theme, faster to render</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.34.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.34.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Direct YouTube upload from the editor</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Publish video to YouTube without leaving SundayRec
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Upload the finished video straight to YouTube from the editor — title, description and thumbnail filled in automatically from the recording metadata</li>
+              <li>Resumable upload protocol with 8 MB chunks survives network drops; a clear progress bar shows bytes sent, ETA and current speed</li>
+              <li>Defaults to "private" so nothing accidentally goes live — switch to public or unlisted from YouTube Studio when you're ready</li>
+              <li>Requires the YouTube Data API v3 and the youtube.upload scope to be enabled in your Google Cloud project (one-time setup; instructions in the app)</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.33.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.33.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Auto-trim suggestions + Drive virus-scan workaround</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: One-click trim suggestions
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Auto-analysis now runs the moment a file loads — a "Suggestion ready" banner appears with proposed trim boundaries for the sermon</li>
+              <li>Improved sermon detection handles recordings that start moments before the sermon — the most common real-world case</li>
+              <li>"Is this not the sermon?" dropdown lets you manually override the detected block when needed</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+              Fix: Google Drive virus-scan errors on large files
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Files larger than 25 MB used to hit Drive's virus-scan interstitial and fail to download — SundayRec now transparently switches to drive.usercontent.google.com, which serves the file directly</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.31.0 -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.31.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Editor UX overhaul</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              Timeline rewrite
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Intro and outro clips now render as waveforms directly on the main timeline — you can see exactly where they sit relative to the sermon</li>
+              <li>"Analyse recording" and chapter markers are merged into a single flow that finds the most likely sermon block in one step</li>
+              <li>Drag-and-drop intro/outro clips straight onto the timeline</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Keyboard shortcuts &amp; sticky header
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Full shortcut coverage: Cmd+O / W / S / E, plus Delete, Tab, Home / End and P for play-pause</li>
+              <li>Sticky header with the current filename and a "dirty" indicator so you know when there are unsaved changes</li>
+              <li>New "Close file" button to clear the editor without quitting</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Export &amp; publish in one action
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>"Export and publish" sends the final episode straight to your cloud backup and updates the podcast RSS feed in one step</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
       <!-- v4.30.1 -->
       <article class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.30.1</span>
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.30.1</span>
           <span class="text-gray-400 text-sm">May 2026</span>
-          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
         </div>
 
         <h2 class="text-2xl font-extrabold text-[#194280] mb-6">UI polish</h2>
