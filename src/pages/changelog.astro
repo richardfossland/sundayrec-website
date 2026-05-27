@@ -20,12 +20,248 @@ import Layout from '../layouts/Layout.astro';
   <main class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-6">
 
-      <!-- v4.38.0 -->
+      <!-- v4.54.0 — UX-audit -->
       <article class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.38.0</span>
+          <span class="bg-[#F0BB47] text-[#194280] font-bold text-sm px-3 py-1 rounded-full">v4.54.0</span>
           <span class="text-gray-400 text-sm">May 2026</span>
           <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Latest</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Safer Sunday morning — UX audit</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>
+              Can't accidentally stop a recording
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>The "Continue recording" button is now the primary action in the stop-confirm dialog. An accidental Enter mid-sermon protects the recording instead of stopping it.</li>
+              <li>Escape closes any modal globally and chooses the safe path — for the stop dialog that means continuing the recording.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Better error messages
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Unknown errors used to show raw machine codes ("ENOENT", "EBUSY"). Now you get a clear sentence in your own language plus the technical detail in the diagnostic log.</li>
+              <li>All 8 dialogs now have proper screen-reader roles so keyboard-only and accessibility users get the same UX as everyone else.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.53.0–v4.53.8 — Architecture cleanup -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.53</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+          <span class="text-xs bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full">8 patches</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Internal cleanup — easier to maintain, easier to trust</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              All 127 IPC handlers split into 23 isolated files
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Main-process source file went from 2045 lines down to 922 (−55%) — every domain (recording, streaming, transcription, cloud, etc.) lives in its own file now.</li>
+              <li>Easier to audit, easier to fix bugs, easier to add features without touching unrelated code.</li>
+              <li>1080 unit tests pass throughout — no functional changes for end users.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F0BB47] inline-block"></span>
+              Consolidated stability hardening (v4.52)
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Single source of truth for ffmpeg error classification (was duplicated across audio and video pipelines, which caused 20-attempt reconnect loops on permanent failures).</li>
+              <li>2-second timeout on NDI receiver stop prevents libndi deadlocks from hanging shutdown.</li>
+              <li>Pre-roll restart logic survives settings-save mid-flight; settings-debounce stops slider input from flooding disk writes.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.52.0 — Review-before-publish -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.52.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Review-before-publish workflow</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Recordings land in a review queue first
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>After each service, the recording shows up as a review card on the Home page. Check the auto-trim, adjust the master preset, choose intro/outro jingles — then publish to the podcast.</li>
+              <li>Tray badge counts pending reviews so you don't forget.</li>
+              <li>Idempotent publish: clicking "Publish" twice in quick succession only publishes once.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>
+              Ultra-stability work
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Live-getter adapter pattern fixes a class of bugs where the watchdog couldn't classify unified-pipeline errors.</li>
+              <li>alsoRecord (the local file written while streaming) now waits for 100 KB of actual audio before counting as a recording, and probes MP4 metadata for the real duration instead of trusting wall-clock time.</li>
+              <li>Whisper transcription cancel is now bullet-proof: 1.5 s safety timer kills any hung process.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.47.0 — OAuth replay + editor perf -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.47.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">OAuth replay protection &amp; editor performance</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+              Security: OAuth state replay-vern
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Every OAuth state can be consumed at most once per session (10-minute TTL, capped at 256 entries). Closes a class of replay-attack vectors on both the Google localhost and Dropbox/OneDrive custom-scheme callbacks.</li>
+              <li>18 new dedicated OAuth tests.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              Editor perf
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Editor-page mouse-move handlers got faster — getLayoutGeom now caches its result, so the 2× call per mousemove is a no-op the second time.</li>
+              <li>Auto sermon-detection cut from 5 separate passes to 1 over the audio.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.46.0 — Stream + record -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.46.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Stream and record at the same time</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+              New: One button, two outputs
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>The main "Go live" button now tees the video + audio to RTMP destinations AND a local high-bitrate MP4 simultaneously. The local file is ~60% higher bitrate than the stream.</li>
+              <li>If the internet drops mid-sermon, the local recording is unaffected — keeps writing right through the outage.</li>
+              <li>Cloud-upload retry-hardening: failed uploads retry with exponential backoff for up to 24 hours.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.45.0 — Smart home cards -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.45.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Home page redesign — camera selector + smart cards</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              Quick camera switching from the Home page
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Camera selector lives at the top of the Home page — change from webcam to capture card to NDI without touching Settings.</li>
+              <li>Three smart-visible info cards: cloud-backup status, episode thumbnail, transcription status. Only appear when relevant — keep the Home page uncluttered.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.44.0 — Native NDI -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.44.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Native NDI receiver — record from ProPresenter, OBS, Keynote</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: NDI input via vendored grandiose
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Same workflow as OBS — discover NDI sources on the local network, pick one, and record/stream it.</li>
+              <li>Works with EasyWorship, ProPresenter (including Alpha Key), OBS, Keynote/PowerPoint via Screen Capture HX.</li>
+              <li>No NDI tools install required — runtime is bundled.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.43.0 — Live overlays -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.43.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Live overlays during streaming</h2>
+
+        <div class="space-y-8">
+          <section>
+            <h3 class="font-bold text-[#194280] text-lg mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              New: Layer images, screens, and windows on the live stream
+            </h3>
+            <ul class="space-y-2 text-gray-600 text-sm leading-relaxed pl-4">
+              <li>Add an image overlay (church logo, sponsor card), a screen capture, or a specific app window on top of your camera feed.</li>
+              <li>Chroma-key support for green-screen ProPresenter lyrics.</li>
+              <li>9-grid positioning preset + per-overlay opacity slider — no manual coordinate math.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- v4.38.0 — Live RTMP -->
+      <article class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-gray-200 text-gray-600 font-bold text-sm px-3 py-1 rounded-full">v4.38.0</span>
+          <span class="text-gray-400 text-sm">May 2026</span>
         </div>
 
         <h2 class="text-2xl font-extrabold text-[#194280] mb-6">Live RTMP streaming to YouTube, Facebook and beyond</h2>

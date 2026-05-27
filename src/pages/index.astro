@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const VERSION = 'v4.38.0';
+const VERSION = 'v4.54.0';
 ---
 
 <Layout>
@@ -74,8 +74,11 @@ const VERSION = 'v4.38.0';
           Your sermon,<br />
           <span class="text-[#F0BB47]">ready to share.</span>
         </h1>
-        <p class="text-xl md:text-2xl text-blue-200 max-w-2xl mx-auto mb-10 leading-relaxed">
-          SundayRec automatically records your church service, transcribes the sermon to searchable text, and streams it live to YouTube and Facebook — all without touching a button or paying for a subscription.
+        <p class="text-xl md:text-2xl text-blue-200 max-w-2xl mx-auto mb-4 leading-relaxed">
+          Set the schedule once. Every Sunday, SundayRec records the service, transcribes the sermon, streams it live, and publishes to your podcast — by itself.
+        </p>
+        <p class="text-base md:text-lg text-blue-300/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Free desktop app for Mac & Windows. No subscription. No cloud relay. Your files stay yours.
         </p>
 
         <!-- Email capture -->
@@ -186,86 +189,196 @@ const VERSION = 'v4.38.0';
     </div>
   </section>
 
-  <!-- FACTS STRIP -->
-  <section class="py-10 bg-gray-50 border-y border-gray-100">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-gray-400 text-sm font-medium mb-6 uppercase tracking-widest">Designed for every church</p>
-      <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 items-center">
-        {[
-          '100% free to record',
-          'Mac & Windows',
-          '7 interface languages',
-          'AI sermon transcription',
-          'Live RTMP streaming',
-          'No account required',
-          'Works with any USB mixer',
-        ].map(item => (
-          <span class="flex items-center gap-2 text-gray-500 text-sm font-medium">
-            <svg class="w-4 h-4 text-[#F0BB47] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+  <!-- WHAT IT DOES — concrete capabilities, no jargon -->
+  <section class="py-20 bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span class="text-[#F0BB47] font-semibold text-sm uppercase tracking-widest">What it does</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-[#194280] mt-3 mb-4">
+          One app. The whole Sunday workflow.
+        </h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          From the moment the service starts to the podcast going live — SundayRec handles every step so your team doesn't have to remember.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Records -->
+        <div class="bg-gradient-to-br from-[#194280] to-[#0f2a54] p-7 rounded-2xl text-white relative overflow-hidden">
+          <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-[#F0BB47]/10 blur-2xl"></div>
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center mb-5 relative">
+            <svg class="w-6 h-6 text-[#F0BB47]" fill="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="6"/>
             </svg>
-            {item}
-          </span>
-        ))}
+          </div>
+          <h3 class="text-lg font-bold mb-2 relative">Records audio &amp; video</h3>
+          <p class="text-blue-200 text-sm leading-relaxed relative">From your USB mixer, audio interface, webcam or HDMI capture card. Lossless or MP3. Auto-start on Sunday morning.</p>
+        </div>
+
+        <!-- Streams -->
+        <div class="bg-gradient-to-br from-[#194280] to-[#0f2a54] p-7 rounded-2xl text-white relative overflow-hidden">
+          <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-red-500/10 blur-2xl"></div>
+          <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mb-5 relative">
+            <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 relative">Streams live</h3>
+          <p class="text-blue-200 text-sm leading-relaxed relative">To YouTube, Facebook Live, or any RTMP server — multiple destinations at once. Stream and record at the same time.</p>
+        </div>
+
+        <!-- Transcribes -->
+        <div class="bg-gradient-to-br from-[#194280] to-[#0f2a54] p-7 rounded-2xl text-white relative overflow-hidden">
+          <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-green-500/10 blur-2xl"></div>
+          <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-5 relative">
+            <svg class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 relative">Transcribes the sermon</h3>
+          <p class="text-blue-200 text-sm leading-relaxed relative">On-device AI converts every sermon to searchable text in 8 languages. Nothing leaves your computer. Exports SRT subtitles.</p>
+        </div>
+
+        <!-- Publishes -->
+        <div class="bg-gradient-to-br from-[#194280] to-[#0f2a54] p-7 rounded-2xl text-white relative overflow-hidden">
+          <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-[#F0BB47]/15 blur-2xl"></div>
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center mb-5 relative">
+            <svg class="w-6 h-6 text-[#F0BB47]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 relative">Publishes the podcast</h3>
+          <p class="text-blue-200 text-sm leading-relaxed relative">Auto-uploads to Google Drive or Dropbox, generates a podcast RSS feed for Spotify, Apple Podcasts and Pocket Casts.</p>
+        </div>
+      </div>
+
+      <!-- Quick-fact strip -->
+      <div class="mt-14 pt-10 border-t border-gray-100">
+        <p class="text-gray-400 text-sm font-medium mb-6 uppercase tracking-widest text-center">Trusted by churches across Europe</p>
+        <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 items-center">
+          {[
+            'Free forever',
+            'Mac & Windows',
+            '7 interface languages',
+            'No subscription',
+            'No account required',
+            'Works offline',
+            'Open release notes',
+          ].map(item => (
+            <span class="flex items-center gap-2 text-gray-500 text-sm font-medium">
+              <svg class="w-4 h-4 text-[#F0BB47] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section id="features" class="py-24 bg-white">
+  <section id="features" class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <span class="text-[#F0BB47] font-semibold text-sm uppercase tracking-widest">Features</span>
+        <span class="text-[#F0BB47] font-semibold text-sm uppercase tracking-widest">All the details</span>
         <h2 class="text-4xl md:text-5xl font-extrabold text-[#194280] mt-3 mb-4">
-          Everything your church needs
+          Every feature your church needs
         </h2>
         <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-          From the first note to the last "amen" — SundayRec handles the entire audio workflow so your team can focus on what matters.
+          Built specifically for the Sunday morning team — from setup wizard to broadcast-grade audio mastering. No subscriptions. No locked features.
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- Automatic Scheduling -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Automatic Scheduling</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Set your service time once. SundayRec starts and stops recording automatically every week — no manual intervention needed.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Automatic scheduling</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Set your service time once. SundayRec wakes the computer (Mac & Windows OS-level wake), starts ffmpeg, and stops when the service is over — every week, by itself.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- USB Mixer -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">USB Mixer Support</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Works with any USB mixer or audio interface. High-quality recording straight from your existing sound setup.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">USB mixer & ASIO support</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Detects any USB mixer or audio interface automatically. Native ASIO on Windows for low-latency professional setups. Pre-roll buffer catches the first words even before recording starts.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- Video / Capture / NDI -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+          <div class="absolute top-4 right-4">
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.44+</span>
+          </div>
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Video, capture cards & NDI</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">USB webcam, HDMI capture (Blackmagic, Elgato, Magewell), and native NDI receiver for ProPresenter, OBS, Keynote/PowerPoint via Screen Capture HX. No third-party drivers needed.</p>
+        </div>
+
+        <!-- Live overlays -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+          <div class="absolute top-4 right-4">
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.43+</span>
+          </div>
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Live overlays</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Layer images, screen captures, app windows, or NDI feeds over your video — with chroma key, 9-grid positioning, and per-overlay opacity. ProPresenter lyrics on top of the camera with a single click.</p>
+        </div>
+
+        <!-- Live Streaming -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-500 transition-colors">
+            <svg class="w-6 h-6 text-red-500 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Live RTMP streaming</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">YouTube, Facebook Live, or any RTMP server — multiple destinations at the same time from a single ffmpeg process. 480p / 720p / 1080p, 25 or 30 fps. Stream-keys encrypted in the keychain.</p>
+        </div>
+
+        <!-- Stream + record simultaneously -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+          <div class="absolute top-4 right-4">
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.46+</span>
+          </div>
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Stream + record at once</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">One button: tees the live broadcast to RTMP and a high-bitrate local MP4 simultaneously (~60% higher quality than the stream). Lose internet mid-service? The local file is unaffected.</p>
+        </div>
+
+        <!-- Audio formats -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Multiple Audio Formats</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Export in 30+ formats: MP3, WAV, FLAC, AAC, OGG, OPUS, WMA, AIFF, AC3 and more. Choose the format that fits your podcast platform or archive needs.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">30+ audio formats</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">MP3, WAV, FLAC, AAC, OGG, OPUS, WMA, AIFF, AC3 and more. Choose what fits your podcast platform or archive. Lossless for archive, MP3 for distribution.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
-          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
-            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">In-App Editing</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Trim the sermon, remove silence, and set precise in/out points. Supports 30+ audio and video formats — MP3, WAV, FLAC, WMA, OGG, OPUS, AIFF, AVI, MKV and more.</p>
-        </div>
-
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+        <!-- AI Transcription -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
           <div class="absolute top-4 right-4">
             <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.37+</span>
           </div>
@@ -274,82 +387,103 @@ const VERSION = 'v4.38.0';
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">AI Sermon Transcription</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Turn every sermon into searchable text — entirely on your machine. Powered by whisper.cpp, supports 8 languages, exports SRT subtitles for YouTube. Nothing leaves your computer.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">AI sermon transcription</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Turn every sermon into searchable text — entirely on your machine. Powered by whisper.cpp, 8 languages, exports SRT subtitles for YouTube. Nothing leaves your computer.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
-          <div class="absolute top-4 right-4">
-            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.38</span>
-          </div>
-          <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-500 transition-colors">
-            <svg class="w-6 h-6 text-red-500 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        <!-- Editor / Sermon detection -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Live Streaming</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Stream your service live to YouTube, Facebook, or any RTMP server — multiple destinations from a single ffmpeg process. No subscription, no scene-switcher to learn.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Editor with auto-trim</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Built-in editor for audio and video. Auto-detects the sermon block right after recording — one click to trim, or fine-tune in/out points manually. Crash-recovery autosave never loses an edit.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- Mastering -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Broadcast mastering</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">EBU R128 loudness normalisation built in. Your podcast hits Spotify-grade levels (-16 LUFS) without an audio engineer. Three presets: Spotify, Podcast, Voice.</p>
+        </div>
+
+        <!-- Prep-and-review -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+          <div class="absolute top-4 right-4">
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.52+</span>
+          </div>
+          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
+            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Review-before-publish</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">New recordings land in a review queue. Check the trim, tweak the master preset, set intro/outro jingles, then publish. Catch mistakes before they reach the podcast feed.</p>
+        </div>
+
+        <!-- YouTube upload -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">YouTube Upload</h3>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">YouTube upload</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Publish straight to YouTube from the editor. Resumable upload protocol survives network hiccups; uploads stay private by default until you're ready to release.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
-          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
-            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Auto Sermon Detection</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">SundayRec analyses the recording as soon as it's done and finds the sermon block automatically. One click to trim — or fine-tune yourself in the editor.</p>
-        </div>
-
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- Cloud Backup -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Cloud Backup</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Every recording auto-uploads to your own Google Drive or Dropbox after the service ends. OAuth tokens stay in the system keychain — your files never pass through us.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Cloud backup</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Every recording auto-uploads to your own Google Drive, Dropbox, or OneDrive after the service. OAuth tokens stay in the system keychain — your files never touch our servers.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- Podcast RSS -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Podcast RSS Feed</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">A valid RSS feed is generated and updated for you. Submit the URL once to Spotify, Apple Podcasts and Pocket Casts — new episodes appear automatically after every service.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Podcast RSS feed</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Generates and updates a valid podcast RSS feed for you. Submit the URL once to Spotify, Apple Podcasts and Pocket Casts — new episodes appear automatically after every service.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
-          <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
-            <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        <!-- Ultra-stable -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all relative">
+          <div class="absolute top-4 right-4">
+            <span class="bg-[#F0BB47]/20 text-[#194280] text-xs font-bold px-2 py-1 rounded-full">v4.52+</span>
+          </div>
+          <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-green-500 transition-colors">
+            <svg class="w-6 h-6 text-green-500 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">Video Recording</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Record audio and video simultaneously. Works with any USB webcam or HDMI capture card — Blackmagic, Elgato, Magewell. Live preview while recording. Exported as a combined MP4.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">Ultra-stable on Sunday morning</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Crash-recovery, auto-reconnect on USB hiccup, watchdog timers, and pre-roll buffer. If something goes wrong during the service, the recording keeps going.</p>
         </div>
 
-        <div class="group p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
+        <!-- 7 Languages -->
+        <div class="group bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#194280]/20 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-[#194280]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#194280] transition-colors">
             <svg class="w-6 h-6 text-[#194280] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-[#194280] mb-2">7 Languages</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Available in English, Norwegian, Swedish, Danish, German, French, and Polish. Serving churches across Europe and beyond.</p>
+          <h3 class="text-lg font-bold text-[#194280] mb-2">7 interface languages</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">English, Norwegian, Swedish, Danish, German, French, and Polish. Built specifically for churches across Europe and beyond.</p>
         </div>
       </div>
     </div>
@@ -396,6 +530,95 @@ const VERSION = 'v4.38.0';
     </div>
   </section>
 
+  <!-- WHY SUNDAYREC — addresses "why not OBS / Audacity?" objection -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-[#F0BB47] font-semibold text-sm uppercase tracking-widest">Why SundayRec</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-[#194280] mt-3 mb-4">
+          Why not just OBS or Audacity?
+        </h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          Those are great tools — for people who use them every day. SundayRec is built for the volunteer who's only there on Sundays.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div class="flex gap-5 p-7 rounded-2xl bg-gray-50 border border-gray-100">
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#194280]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#194280] mb-2">No scenes. No mixer panels.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">SundayRec assumes you already have a mixer in the booth doing the actual mixing. It just records what comes out of it and streams it where you tell it to go.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-7 rounded-2xl bg-gray-50 border border-gray-100">
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#194280]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#194280] mb-2">Set the schedule, walk away.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">OBS needs someone hitting record at 10:00 sharp. SundayRec wakes the computer on its own and records every Sunday for years without you touching it.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-7 rounded-2xl bg-gray-50 border border-gray-100">
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#194280]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#194280] mb-2">Sermon-to-podcast in one window.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Audacity records. Whisper transcribes. Buzzsprout hosts. SundayRec does all three plus auto-trim, mastering and live streaming — no copy-pasting between four tools.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-7 rounded-2xl bg-gray-50 border border-gray-100">
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#194280]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#194280] mb-2">Your files. Your machine.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">No cloud relay. No "free" tier with bandwidth limits. Transcription runs on-device — your sermons never leave the building unless you explicitly upload them.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-7 rounded-2xl bg-gray-50 border border-gray-100">
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#194280]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#194280] mb-2">Built to survive Sunday morning.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">USB cable jiggles? Auto-reconnect. Wi-Fi drops mid-stream? The local recording keeps going. App crashes? Crash-recovery resumes within seconds — the recording outlives the bug.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-7 rounded-2xl bg-gray-50 border border-gray-100">
+          <div class="w-12 h-12 bg-[#F0BB47]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#194280]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#194280] mb-2">Open and inspectable.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">The full source code, every release note, and every line of every change lives on GitHub. Fork it, audit it, or just trust that it's exactly what it says it is.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section id="pricing" class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
@@ -425,16 +648,21 @@ const VERSION = 'v4.38.0';
           </div>
           <ul class="space-y-3 mb-8 text-sm">
             {[
-              'Automatic scheduled recording',
-              'USB mixer & audio interface support',
-              '30+ audio formats (MP3, WAV, FLAC, OGG, WMA and more)',
-              'Video recording (USB webcam & capture cards)',
-              'AI sermon transcription (100% local, 8 languages)',
-              'Live streaming to YouTube, Facebook & RTMP',
+              'Automatic scheduled recording (OS-level wake)',
+              'USB mixer, audio interface & ASIO support',
+              '30+ audio formats (MP3, WAV, FLAC, OGG, WMA, AC3 …)',
+              'Video recording (USB webcam, HDMI capture & native NDI)',
+              'Live overlays (image, screen, window, NDI feeds)',
+              'AI sermon transcription (100% local, 8 languages, SRT export)',
+              'Live streaming to YouTube, Facebook & any RTMP server',
+              'Stream + record locally at the same time (high-bitrate MP4)',
+              'EBU R128 broadcast mastering (Spotify-grade loudness)',
+              'Review-before-publish queue',
               'YouTube upload directly from editor',
               'Auto sermon detection & one-click trim',
-              'Cloud backup (Google Drive & Dropbox)',
+              'Cloud backup (Google Drive, Dropbox & OneDrive)',
               'Podcast RSS feed for Spotify, Apple, Pocket Casts',
+              'Crash-recovery + auto-reconnect',
               'Mac & Windows · 7 interface languages',
               'Auto-updates',
             ].map(item => (
